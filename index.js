@@ -24,180 +24,212 @@ function generateVariantUtilities(baseUtilities, variant, generateValue) {
 const safeArea = plugin(({ addUtilities, matchUtilities, theme }) => {
 	const baseUtilities = {
 		".m-safe": {
-			marginTop: "env(safe-area-inset-top)",
-			marginRight: "env(safe-area-inset-right)",
-			marginBottom: "env(safe-area-inset-bottom)",
-			marginLeft: "env(safe-area-inset-left)",
+			marginTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			marginRight: "var(--safe-area-inset-right, env(safe-area-inset-right))",
+			marginBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
+			marginLeft: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".mx-safe": {
-			marginRight: "env(safe-area-inset-right)",
-			marginLeft: "env(safe-area-inset-left)",
+			marginRight: "var(--safe-area-inset-right, env(safe-area-inset-right))",
+			marginLeft: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".my-safe": {
-			marginTop: "env(safe-area-inset-top)",
-			marginBottom: "env(safe-area-inset-bottom)",
+			marginTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			marginBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".ms-safe": {
-			marginInlineStart: "env(safe-area-inset-left)",
+			marginInlineStart:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".me-safe": {
-			marginInlineEnd: "env(safe-area-inset-left)",
+			marginInlineEnd: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".mt-safe": {
-			marginTop: "env(safe-area-inset-top)",
+			marginTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
 		},
 		".mr-safe": {
-			marginRight: "env(safe-area-inset-right)",
+			marginRight: "var(--safe-area-inset-right, env(safe-area-inset-right))",
 		},
 		".mb-safe": {
-			marginBottom: "env(safe-area-inset-bottom)",
+			marginBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".ml-safe": {
-			marginLeft: "env(safe-area-inset-left)",
+			marginLeft: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".p-safe": {
-			paddingTop: "env(safe-area-inset-top)",
-			paddingRight: "env(safe-area-inset-right)",
-			paddingBottom: "env(safe-area-inset-bottom)",
-			paddingLeft: "env(safe-area-inset-left)",
+			paddingTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			paddingRight: "var(--safe-area-inset-right, env(safe-area-inset-right))",
+			paddingBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
+			paddingLeft: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".px-safe": {
-			paddingRight: "env(safe-area-inset-right)",
-			paddingLeft: "env(safe-area-inset-left)",
+			paddingRight: "var(--safe-area-inset-right, env(safe-area-inset-right))",
+			paddingLeft: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".py-safe": {
-			paddingTop: "env(safe-area-inset-top)",
-			paddingBottom: "env(safe-area-inset-bottom)",
+			paddingTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			paddingBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".ps-safe": {
-			paddingInlineStart: "env(safe-area-inset-left)",
+			paddingInlineStart:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".pe-safe": {
-			paddingInlineEnd: "env(safe-area-inset-left)",
+			paddingInlineEnd:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".pt-safe": {
-			paddingTop: "env(safe-area-inset-top)",
+			paddingTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
 		},
 		".pr-safe": {
-			paddingRight: "env(safe-area-inset-right)",
+			paddingRight: "var(--safe-area-inset-right, env(safe-area-inset-right))",
 		},
 		".pb-safe": {
-			paddingBottom: "env(safe-area-inset-bottom)",
+			paddingBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".pl-safe": {
-			paddingLeft: "env(safe-area-inset-left)",
+			paddingLeft: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-m-safe": {
-			scrollMarginTop: "env(safe-area-inset-top)",
-			scrollMarginRight: "env(safe-area-inset-right)",
-			scrollMarginBottom: "env(safe-area-inset-bottom)",
-			scrollMarginLeft: "env(safe-area-inset-left)",
+			scrollMarginTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			scrollMarginRight:
+				"var(--safe-area-inset-right, env(safe-area-inset-right))",
+			scrollMarginBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
+			scrollMarginLeft:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-mx-safe": {
-			scrollMarginRight: "env(safe-area-inset-right)",
-			scrollMarginLeft: "env(safe-area-inset-left)",
+			scrollMarginRight:
+				"var(--safe-area-inset-right, env(safe-area-inset-right))",
+			scrollMarginLeft:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-my-safe": {
-			scrollMarginTop: "env(safe-area-inset-top)",
-			scrollMarginBottom: "env(safe-area-inset-bottom)",
+			scrollMarginTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			scrollMarginBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".scroll-ms-safe": {
-			scrollMarginInlineStart: "env(safe-area-inset-left)",
+			scrollMarginInlineStart:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-me-safe": {
-			scrollMarginInlineEnd: "env(safe-area-inset-left)",
+			scrollMarginInlineEnd:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-mt-safe": {
-			scrollMarginTop: "env(safe-area-inset-top)",
+			scrollMarginTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
 		},
 		".scroll-mr-safe": {
-			scrollMarginRight: "env(safe-area-inset-right)",
+			scrollMarginRight:
+				"var(--safe-area-inset-right, env(safe-area-inset-right))",
 		},
 		".scroll-mb-safe": {
-			scrollMarginBottom: "env(safe-area-inset-bottom)",
+			scrollMarginBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".scroll-ml-safe": {
-			scrollMarginLeft: "env(safe-area-inset-left)",
+			scrollMarginLeft:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-p-safe": {
-			scrollPaddingTop: "env(safe-area-inset-top)",
-			scrollPaddingRight: "env(safe-area-inset-right)",
-			scrollPaddingBottom: "env(safe-area-inset-bottom)",
-			scrollPaddingLeft: "env(safe-area-inset-left)",
+			scrollPaddingTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			scrollPaddingRight:
+				"var(--safe-area-inset-right, env(safe-area-inset-right))",
+			scrollPaddingBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
+			scrollPaddingLeft:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-px-safe": {
-			scrollPaddingRight: "env(safe-area-inset-right)",
-			scrollPaddingLeft: "env(safe-area-inset-left)",
+			scrollPaddingRight:
+				"var(--safe-area-inset-right, env(safe-area-inset-right))",
+			scrollPaddingLeft:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-py-safe": {
-			scrollPaddingTop: "env(safe-area-inset-top)",
-			scrollPaddingBottom: "env(safe-area-inset-bottom)",
+			scrollPaddingTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			scrollPaddingBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".scroll-ps-safe": {
-			scrollPaddingInlineStart: "env(safe-area-inset-left)",
+			scrollPaddingInlineStart:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-pe-safe": {
-			scrollPaddingInlineEnd: "env(safe-area-inset-left)",
+			scrollPaddingInlineEnd:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".scroll-pt-safe": {
-			scrollPaddingTop: "env(safe-area-inset-top)",
+			scrollPaddingTop: "var(--safe-area-inset-top, env(safe-area-inset-top))",
 		},
 		".scroll-pr-safe": {
-			scrollPaddingRight: "env(safe-area-inset-right)",
+			scrollPaddingRight:
+				"var(--safe-area-inset-right, env(safe-area-inset-right))",
 		},
 		".scroll-pb-safe": {
-			scrollPaddingBottom: "env(safe-area-inset-bottom)",
+			scrollPaddingBottom:
+				"var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".scroll-pl-safe": {
-			scrollPaddingLeft: "env(safe-area-inset-left)",
+			scrollPaddingLeft:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".inset-safe": {
-			top: "env(safe-area-inset-top)",
-			right: "env(safe-area-inset-right)",
-			bottom: "env(safe-area-inset-bottom)",
-			left: "env(safe-area-inset-left)",
+			top: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			right: "var(--safe-area-inset-right, env(safe-area-inset-right))",
+			bottom: "var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
+			left: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".inset-x-safe": {
-			right: "env(safe-area-inset-right)",
-			left: "env(safe-area-inset-left)",
+			right: "var(--safe-area-inset-right, env(safe-area-inset-right))",
+			left: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".inset-y-safe": {
-			top: "env(safe-area-inset-top)",
-			bottom: "env(safe-area-inset-bottom)",
+			top: "var(--safe-area-inset-top, env(safe-area-inset-top))",
+			bottom: "var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".start-safe": {
-			insetInlineStart: "env(safe-area-inset-left)",
+			insetInlineStart:
+				"var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".end-safe": {
-			insetInlineEnd: "env(safe-area-inset-left)",
+			insetInlineEnd: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".top-safe": {
-			top: "env(safe-area-inset-top)",
+			top: "var(--safe-area-inset-top, env(safe-area-inset-top))",
 		},
 		".right-safe": {
-			right: "env(safe-area-inset-right)",
+			right: "var(--safe-area-inset-right, env(safe-area-inset-right))",
 		},
 		".bottom-safe": {
-			bottom: "env(safe-area-inset-bottom)",
+			bottom: "var(--safe-area-inset-bottom, env(safe-area-inset-bottom))",
 		},
 		".left-safe": {
-			left: "env(safe-area-inset-left)",
+			left: "var(--safe-area-inset-left, env(safe-area-inset-left))",
 		},
 		".min-h-screen-safe": {
 			minHeight: [
-				"calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))",
+				"calc(100vh - (var(--safe-area-inset-top, env(safe-area-inset-top)) + var(--safe-area-inset-bottom, env(safe-area-inset-bottom))))",
 				"-webkit-fill-available",
 			],
 		},
 		".max-h-screen-safe": {
 			maxHeight: [
-				"calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))",
+				"calc(100vh - (var(--safe-area-inset-top, env(safe-area-inset-top)) + var(--safe-area-inset-bottom, env(safe-area-inset-bottom))))",
 				"-webkit-fill-available",
 			],
 		},
 		".h-screen-safe": {
 			height: [
-				"calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))",
+				"calc(100vh - (var(--safe-area-inset-top, env(safe-area-inset-top)) + var(--safe-area-inset-bottom, env(safe-area-inset-bottom))))",
 				"-webkit-fill-available",
 			],
 		},
