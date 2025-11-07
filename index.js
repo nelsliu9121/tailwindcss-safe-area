@@ -281,7 +281,7 @@ const safeArea = plugin(({ addBase, addUtilities, matchUtilities, theme }) => {
     },
   };
 
-  addBase(baseVars);
+  addBase({ ":root": baseVars });
   addUtilities(baseUtilities);
 
   const offsetUtilities = generateVariantUtilities(
